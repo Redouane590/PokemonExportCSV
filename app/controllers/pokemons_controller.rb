@@ -1,6 +1,11 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    # @pokemons = Pokemon.all
+    if params[:query].present?
+      @pokemons = Pokemon.search(params[:query])
+    else
+      @pokemons = Pokemon.all
+    end
   end
 
   def export_csv

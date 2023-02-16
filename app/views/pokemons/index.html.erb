@@ -1,4 +1,12 @@
 <h1>Liste des Pokémons de la première génération</h1>
+<%= form_with url: pokemons_path, method: :get, class: 'd-flex my-4 ' do %>
+  <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Chercher un pokemon"
+    %>
+  <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+<% end %>
 <%# ici turbo false car pas possible de faire un redirect sur la meme page  %>
 <%= form_tag export_csv_pokemons_path, method: :post,  data: { turbo: false, controller: "pokemon-selector", pokemon_selector_target: "checkbox" }  do %>
   <%= label_tag :select_all do %>
