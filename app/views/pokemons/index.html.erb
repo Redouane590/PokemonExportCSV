@@ -1,2 +1,19 @@
-<h1>Pokemons#index</h1>
-<p>Find me in app/views/pokemons/index.html.erb</p>
+<h1 class="text-center">Liste des Pokémons de la première génération via l'API: <br> https://mon-api-pokemon.vercel.app/api/v1/pokemon</h1>
+
+
+<div class="container">
+  <div class="row">
+    <% @pokemons.each do |pokemon| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="<%= pokemon.regular_sprite %>" class="card-img-top" alt="<%= pokemon.name %>">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= pokemon.name %></h5>
+            <p class="card-text text-center"><strong>Type:</strong> <%= pokemon.pokemon_type %></p>
+            <p class="card-text text-center"><strong>Pokedex ID:</strong> <%= pokemon.pokedex_id %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
