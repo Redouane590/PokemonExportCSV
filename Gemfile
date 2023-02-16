@@ -13,6 +13,8 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 # Use httparty: Make requests fun again!
 gem "httparty"
+# Pgsearch pour implementer une barre de recherche
+gem "pg_search"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

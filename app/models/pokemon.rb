@@ -1,6 +1,12 @@
 require "httparty"
 class Pokemon < ApplicationRecord
   include HTTParty
+  include PgSearch::Model
+  pg_search_scope :search,
+                  against: [ :name, :pokemon_type ],
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 
   def self.fetch_data
     response = HTTParty.get('https://mon-api-pokemon.vercel.app/api/v1/gen/1')
