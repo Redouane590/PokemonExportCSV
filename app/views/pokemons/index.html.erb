@@ -10,6 +10,11 @@
           <div class="card-body">
             <h5 class="card-title text-center"><%= pokemon.name %></h5>
             <p class="card-text text-center"><strong>Type:</strong> <%= pokemon.pokemon_type %></p>
+            <div class="d-flex justify-content-center">
+              <% pokemon.pokemon_type.split(',').each do |type| %>
+                <%= image_tag("#{type.downcase.strip}.png", alt: type, class: 'mx-1') %>
+              <% end %>
+            </div>
             <p class="card-text text-center"><strong>Pokedex ID:</strong> <%= pokemon.pokedex_id %></p>
           </div>
         </div>
