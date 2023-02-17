@@ -41,7 +41,7 @@ class PokemonsController < ApplicationController
   def show
     # raise
     # ici obliger de faire une modif sur le params id car sinon ca me renvoyer pas le bon pokemon
-    response = HTTParty.get("https://mon-api-pokemon.vercel.app/api/v1/pokemon/#{(params[:id].to_i) - 931}")
+    response = HTTParty.get("https://mon-api-pokemon.vercel.app/api/v1/pokemon/#{(params[:id].to_i)}")
     @pokemon = JSON.parse(response.body)
   end
 end
