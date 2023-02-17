@@ -19,7 +19,7 @@ class Pokemon < ApplicationRecord
       pokemon.shiny_sprite = pokemon_data['sprites']['shiny']
       pokemon.pokemon_type = pokemon_data['types']&.map { |type| type["name"] }&.join(", ")
       next_evolutions = pokemon_data['evolution'].nil? ? [] : pokemon_data['evolution']['next']&.map { |e| e['pokedexId'] }
-      pokemon.pokedex_ids = next_evolutions
+      pokemon.pokedex_ids = next_evolutions.to_a.join(",")
       pokemon.save
     end
   end
