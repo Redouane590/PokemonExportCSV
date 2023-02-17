@@ -1,0 +1,79 @@
+<%= link_to "retour a l'index", pokemons_path, class: "btn btn-success"  %>
+<div class="container d-flex justify-content-center mt-3">
+  <div class="pokemon-card">
+    <div class="pokemon-header">
+      <h2 class="pokemon-name"><%= @pokemon["name"]["fr"] %></h2>
+      <p class="pokemon-id">#<%= @pokemon["pokedexId"] %></p>
+    </div>
+    <img class="pokemon-image" src="<%= @pokemon["sprites"]["regular"] %>" alt="<%= @pokemon["name"]["fr"] %>">
+    <div class="pokemon-body">
+      <div class="pokemon-type">
+        <% @pokemon["types"].each do |type| %>
+        <p class="pokemon-type__name <%= type["name"] %>"><%= type["name"] %></p>
+        <% end %>
+      </div>
+      <ul class="pokemon-stats">
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/free/png-256/heart-56-76703.png?f=avif&w=128" alt="HP">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["hp"] %></span>
+        </li>
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/sword-62-356289.png?f=avif&w=128" alt="Attaque">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["atk"] %></span>
+        </li>
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shield-630-608413.png?f=avif&w=128" alt="Défense">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["def"] %></span>
+        </li>
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/knife-6924835-5675673.png?f=avif&w=128"
+            alt="Attaque spéciale">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["spe_atk"] %></span>
+        </li>
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shield-2522797-2112295.png?f=avif&w=128"
+            alt="Défense spéciale">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["spe_def"] %></span>
+        </li>
+        <li class="pokemon-stat">
+          <img class="pokemon-stat__icon"
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/speed-2522904-2113002.png?f=avif&w=128"
+            alt="Vitesse">
+          <span class="pokemon-stat__value"><%= @pokemon["stats"]["vit"] %></span>
+        </li>
+      </ul>
+      <div class="pokemon-height-weight">
+        <p class="pokemon-height">Taille: <%= @pokemon["height"] %></p>
+        <p class="pokemon-weight">Poids: <%= @pokemon["weight"] %></p>
+      </div>
+      <div class="pokemon-info2">
+        <%# <p>Résistances: <%= @pokemon["resistances"].map {|resistance| "#{resistance["name"]} (x#{resistance["multiplier"]})" }.join(", ") </p> %>
+        <p class="pokemon-height">Groupes d'œufs: <%= @pokemon["egg_groups"].join(", ") %></p>
+        <p class="pokemon-height">Taux de capture: <%= @pokemon["catch_rate"] %> %</p>
+      </div>
+      <div class="pokemon-evolution">
+        <h3>Évolution:</h3>
+        <ul>
+          <% if @pokemon["evolution"].present? %>
+            <% if @pokemon["evolution"]["pre"].present? %>
+            <li>Évolution précédente: <%= @pokemon["evolution"]["pre"].map {|evo| "#{evo["name"]}"}.join(", ")%></li>
+            <% end %>
+            <% if @pokemon["evolution"]["next"].present? %>
+            <li>Prochaine évolution: <%= @pokemon["evolution"]["next"].map {|evo| "#{evo["name"]}"}.join(", ") %></li>
+            <% end %>
+            <% if @pokemon["evolution"]["mega"].present? %>
+            <li>Méga-évolution: <%= @pokemon["evolution"]["mega"].map {|evo| "#{evo["orbe"]}"}.join(", ") %></li>
+            <% end %>
+          <% else %>
+            <strong>Pas d'evolution !</strong>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
