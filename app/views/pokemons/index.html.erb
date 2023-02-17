@@ -1,4 +1,5 @@
-<h1>Liste des Pokémons de la première génération</h1>
+<div class="container">
+<h1 class="text-center">Liste des Pokémons de la première génération</h1>
 <%= form_with url: pokemons_path, method: :get, class: 'd-flex my-4 ' do %>
   <%= text_field_tag :query,
       params[:query],
@@ -7,13 +8,6 @@
     %>
   <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
 <% end %>
-<% if @pokemons.count == 0 %>
-    <div> <strong>Rien ne coressepond à votre recherche veuillez essayer autre chose...</strong> </div>
-    <div class="alert alert-danger" role="alert">
-      Rien ne coressepond à votre recherche veuillez essayer autre chose...
-    </div>
-   <% end %>
-<%# ici turbo false car pas possible de faire un redirect sur la meme page  %>
 <%= form_tag export_csv_pokemons_path, method: :post,  data: { turbo: false, controller: "pokemon-selector", pokemon_selector_target: "checkbox" }  do %>
   <%= label_tag :select_all do %>
     <%= check_box_tag :select_all, 1, false, class: 'select-all', data: { action: 'click->pokemon-selector#toggle_check' } %>
@@ -24,22 +18,24 @@
     <div class="row" data-controller="hello" >
       <% @pokemons.each do |pokemon| %>
         <div class="col-md-4 mb-4">
-          <div class="card">
+          <div class="card" style="border-radius: 12px">
             <img src="<%= pokemon.regular_sprite %>" class="card-img-top" alt="<%= pokemon.name %>">
             <div class="card-body">
               <h5 class="card-title text-center"><strong><%= pokemon.name %></strong> <%= check_box_tag "pokemon_ids[]", pokemon.id, false, data:{ pokemon_selector_target: "checkbox"} %></h5>
-              <p class="card-text text-center"><strong>Type:</strong> (<%= pokemon.pokemon_type %>)</p>
+              <p class="card-text text-center"><i><strong>Type:</strong> (<%= pokemon.pokemon_type %>)</i></p>
               <div class="d-flex justify-content-center">
                 <% pokemon.pokemon_type.split(',').each do |type| %>
                   <%= image_tag("#{type.downcase.strip}.png", alt: type, class: 'mx-1') %>
                 <% end %>
               </div>
               <p class="card-text text-center"><strong>Pokedex ID:</strong> <%= pokemon.pokedex_id %></p>
+            <div class="d-flex justify-content-center">
+            <%= link_to "plus d'infos...", pokemon_path(pokemon), class: 'btn btn-success' %></div>
             </div>
           </div>
         </div>
       <% end %>
-  <%= submit_tag 'Exporter au format CSV', class: 'btn btn-primary' %>
+      <%= submit_tag 'Exporter au format CSV', class: 'btn btn-primary export-btn' %>
     </div>
   </div>
 <% end %>
@@ -48,3 +44,4 @@
     <%= flash[:alert] %>
   </div>
 <% end %>
+</div>

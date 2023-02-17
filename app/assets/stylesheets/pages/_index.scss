@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+.export-btn {
+  position: fixed;
+  width: 210px;
+  bottom: 32px;
+  right: 12px;
+  z-index: 1000;
+}

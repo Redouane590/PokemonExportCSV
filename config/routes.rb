@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "pokemons#index"
-  resources :pokemons, only: [:index] do
+  resources :pokemons, only: [:index, :show] do
     collection do
       post 'export_csv'
     end
