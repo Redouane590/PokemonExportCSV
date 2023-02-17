@@ -27,4 +27,7 @@ Pour lancer l'application en mode développement, exécutez la commande suivante
 <br>
 Ouvrez votre navigateur et allez à l'adresse http://localhost:3000 pour accéder à l'application.
 <br><br>
+<br><br>
+Choisissez le ou les pokemon qui vous interresse.
+<br> vous pouvez avoir plus d'informations sur un pokemon en cliquant sur son bouton "voir plus"<br>
 Pour importer un fichier CSV de Pokemon, cliquez sur le bouton "Importer CSV"
