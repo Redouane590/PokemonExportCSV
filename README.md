@@ -2,7 +2,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 
 
-Ceci est une application web qui affiche une liste de la première génération de Pokemon via l'API (https://mon-api-pokemon.vercel.app/api/v1/pokemon) et permet à l'utilisateur de sélectionner un ou plusieurs Pokemon, cette sélection de Pokémon sera exportable au format CSV.
+Ceci est une application web qui affiche une liste de la première génération de Pokemon via l'API (https://mon-api-pokemon.vercel.app/api/v1/pokemon) et permet à l'utilisateur de sélectionner un ou plusieurs Pokemon, cette sélection de Pokémon est exportable au format CSV.
 
 
 <h2>Installation</h2>
@@ -13,8 +13,8 @@ Installez les dépendances Ruby en utilisant la commande suivante :
 Installez les dépendances JavaScript en utilisant la commande suivante :
 <code>yarn install</code>
 
-Créez la base de données, exécutez les migrations et chargez les données avec la commande suivante :
-<code>rails db:create db:migrate db:seed</code>
+Exécutez les migrations et chargez les données avec la commande suivante :
+<code>rails db:migrate db:seed</code>
  
 
 <h2>Utilisation</h2>
@@ -29,7 +29,7 @@ Ouvrez votre navigateur et allez à l'adresse http://localhost:3000 pour accéde
 <br><br>
 <br><br>
 Choisissez le ou les pokemon qui vous interresse.
-<br> vous pouvez avoir plus d'informations sur un pokemon en cliquant sur son bouton "voir plus"<br>
+<br> Vous pouvez avoir plus d'informations sur un pokemon en cliquant sur son bouton "voir plus"<br>
 Pour importer un fichier CSV de Pokemon, cliquez sur le bouton "Importer CSV"
 
 
