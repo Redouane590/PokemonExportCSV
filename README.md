@@ -20,8 +20,11 @@ Créez la base de données, exécutez les migrations et chargez les données ave
 <h2>Utilisation</h2>
 Pour lancer l'application en mode développement, exécutez la commande suivante :
 <code>rails s</code>
-<br>ou <code>dev</code> si une erreur s'affiche
-
+<br>si l'erreur: <i>The asset "application.js" is not present in the asset pipeline.</i> se présente,
+<br> Soit pour pouvez lancer la commande <code>bin/dev</code>
+<br>Soit vous pouvez lancer la commande <code>rails assets:precompile</code> suivi de la commande <code>rails s</code>
+<br>
+<br>
 Ouvrez votre navigateur et allez à l'adresse http://localhost:3000 pour accéder à l'application.
-
+<br><br>
 Pour importer un fichier CSV de Pokemon, cliquez sur le bouton "Importer CSV"
