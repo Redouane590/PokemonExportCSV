@@ -31,3 +31,23 @@ Ouvrez votre navigateur et allez à l'adresse http://localhost:3000 pour accéde
 Choisissez le ou les pokemon qui vous interresse.
 <br> vous pouvez avoir plus d'informations sur un pokemon en cliquant sur son bouton "voir plus"<br>
 Pour importer un fichier CSV de Pokemon, cliquez sur le bouton "Importer CSV"
+
+
+<br><br>
+<h2>Ressources</h2>
+<br>Voici les sites qui ont pu m'aider lors de la création de l'appli :
+<br><br>https://www.twilio.com/fr/blog/5-facons-faire-requetes-http-ruby
+<br>https://github.com/jnunemaker/httparty
+<br>https://dev.to/gervanna/how-to-trim-whitespaces-in-ruby-strings-1o5e
+<br>https://stackoverflow.com/questions/36812647/what-does-ampersand-dot-mean-in-ruby
+<br>https://guides.rubyonrails.org/getting_started.html#mvc-and-you
+<br>https://getbootstrap.com/docs/4.0/components/card/
+<br>https://mon-api-pokemon.vercel.app/
+<br>https://apidock.com/rails/ActionView/Helpers/FormTagHelper/check_box_tag
+<br>https://www.rubyguides.com/2019/11/rails-flash-messages/
+<br>https://blog.arkency.com/2017/07/nil-empty-blank-ruby-rails-difference/
+<br>https://github.com/Casecommons/pg_search
+<br>https://apidock.com/ruby/NilClass/to_a
+<br>https://guides.rubyonrails.org/
+<br>Les ressources sur Kitt lewagon
+<br> et d'autres...
