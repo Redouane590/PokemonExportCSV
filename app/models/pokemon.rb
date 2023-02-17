@@ -1,4 +1,5 @@
 require "httparty"
+# require 'pry'
 class Pokemon < ApplicationRecord
   include HTTParty
   include PgSearch::Model
@@ -14,12 +15,11 @@ class Pokemon < ApplicationRecord
       pokemon = Pokemon.new
       pokemon.pokedex_id = pokemon_data['pokedexId'].to_i
       pokemon.name = pokemon_data['name']['fr']
-      pokemon.regular_sprite = pokemon_data['sprite']['regular']
-      pokemon.shiny_sprite = pokemon_data['sprite']['shiny']
+      pokemon.regular_sprite = pokemon_data['sprites']['regular']
+      pokemon.shiny_sprite = pokemon_data['sprites']['shiny']
       pokemon.pokemon_type = pokemon_data['types']&.map { |type| type["name"] }&.join(", ")
-      pre_evolutions = pokemon_data['evolution'].nil? ? [] : pokemon_data['evolution']['pre']&.map { |e| e['pokedexId'] } || []
-      next_evolutions = pokemon_data['evolution'].nil? ? [] : pokemon_data['evolution']['next']&.map { |e| e['pokedexId'] } || []
-      pokemon.pokedex_ids = (pre_evolutions + next_evolutions + [pokemon.pokedex_id]).join(',')
+      next_evolutions = pokemon_data['evolution'].nil? ? [] : pokemon_data['evolution']['next']&.map { |e| e['pokedexId'] }
+      pokemon.pokedex_ids = next_evolutions
       pokemon.save
     end
   end
